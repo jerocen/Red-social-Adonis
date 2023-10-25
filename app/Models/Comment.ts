@@ -17,7 +17,7 @@ export default class Comment extends BaseModel {
   public posts: BelongsTo<typeof Post>
 
   @column()
-  public posts_id: number = 0
+  public post_id: number = 0
 
   @column()
   public content_comment: string = ""

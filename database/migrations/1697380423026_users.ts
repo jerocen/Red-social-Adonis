@@ -14,7 +14,8 @@ export default class extends BaseSchema
             table.integer('age').notNullable
             table.string('sex', 10).nullable
             table.text('biography').nullable
-            table.integer('No_followers').defaultTo(0);
+            table.integer('No_followers').defaultTo(0)
+            table.boolean('is_active').defaultTo(true);
             /**
              * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
              */

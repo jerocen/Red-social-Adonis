@@ -7,7 +7,7 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').unsigned().primary()
       table.integer('user_id').unsigned().references('id').inTable('users')
-      table.integer('posts_id').unsigned().references('id').inTable('posts')
+      table.integer('post_id').unsigned().references('id').inTable('posts')
       table.text('content_comment').notNullable()
       table.bigInteger('likes_count_comment').defaultTo(0);
 

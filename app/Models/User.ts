@@ -28,6 +28,9 @@ export default class User extends BaseModel {
   @column()
   public No_followers: number = 0
 
+  @column()
+  public is_active: boolean = true
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime = DateTime.now()
 

@@ -29,16 +29,19 @@ Route.get('/', async () => {
 })
 
 Route.get('/allUsers', 'UsersController.index')
+
 //Route.post('/newUser', 'UsersController.store')
 // Route.put('/editUser', 'UsersController.update')
 // Route.delete('/eraseUser', 'UsersController.destroy')
 
 Route.get('/allPosts', 'PostsController.index')
+
 // Route.post('/newPosts', 'PostsController.store')
 // Route.put('/editPosts', 'PostsController.update')
 // Route.delete('/erasePosts', 'PostsController.destroy')
 
 Route.get('/allComments', 'CommentsController.index')
+
 // Route.post('/newComment', 'CommentController.store')
 // Route.put('/editComment', 'CommentController.update')
 // Route.delete('/eraseComment', 'CommentController.destroy')
@@ -51,3 +54,8 @@ Route.get('miMetodo', 'UsersController.miMetodo')
 // Define la ruta en tu archivo routes.ts
 Route.get('users/:id', 'UsersController.getUserWithPostsAndComments')
 Route.any('mi-ruta', 'UsersController.showMethod');
+
+//Ruta con el comodin del request.method en el switch
+
+Route.any('/method/', 'UsersController.crudOperations')
+Route.any('/method/:id', 'UsersController.crudOperations')
