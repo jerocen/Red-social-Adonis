@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Post from 'App/Models/Post';
+import CreateUserValidator from 'App/Validators/CreateUserValidator';
 import User from 'App/Models/User';
 
 export default class UsersController 
@@ -159,6 +159,9 @@ export default class UsersController
 
             case 'POST':
                 const data = request.only(['username', 'email', 'contrasenia', 'age', 'sex', 'biography', 'No_followers'])
+
+                const validation = await request.validate(CreateUserValidator)
+
                 const nuevoRegistro = await User.create(data)
                 return response.status(201).json(nuevoRegistro)
 
