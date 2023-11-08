@@ -15,7 +15,9 @@ export default class CreateUserValidator {
       rules.unique({ table: 'users', column: 'email' }),
     ]),
     contrasenia: schema.string({}, [
-      rules.required(), rules.minLength(6)]),
+      rules.required(), rules.minLength(6),
+      rules.confirmed(),
+    ]),
     age: schema.number([
         rules.required(),
         rules.range(18, 120),
@@ -24,6 +26,8 @@ export default class CreateUserValidator {
       rules.required(),
       rules.regex(/^hombre$|^mujer$/i),
     ]),
+
+
   })
 
   public messages: CustomMessages = {
@@ -37,6 +41,7 @@ export default class CreateUserValidator {
     'age.required': 'La edad es obligatoria',
     'age.range': 'La edad mínima permitida es 18 años',
     'sex.required': 'El sexo es obligatorio',
+    'confirmed': 'Debe confirmar la contraseña',
     'sex.regex': 'El sexo debe ser "hombre" o "mujer".',
   }
 }
